@@ -132,6 +132,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "blog",
     "rest_framework",
+    "rest_framework.authtoken",
 ]
 import os
 ALLOWED_HOSTS = ['*']
@@ -151,3 +152,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
 #     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+    ]
+}
